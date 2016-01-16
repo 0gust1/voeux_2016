@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Une bonne année 2016, choisissez votre haiku</title>
+    <link href="http://fonts.googleapis.com/css?family=Fjalla+One:100|Cantarell:400,400italic,700italic,700" rel="stylesheet" type="text/css" />
+    <style>
+    .container{
+        width:70%; margin:3em auto;
+        }
+        .container header{
+        text-align:center;
+        font-family: 'Fjalla One', sans-serif;
+        font-size:0.8rem;
+        }
+        .container h1{
+        text-align:center;
+        font-size:5em;
+        font-family: 'Fjalla One', sans-serif;
+        font-weight: 700;
+        margin:3rem 0 0 0;
+        line-height:0.65em;
+        color:#ff0;
+        }
+        .container .haiku{
+        font-family: 'Cantarell', sans-serif;
+        font-size: 17px;
+        max-width:17rem;
+        margin:0 auto;
+        padding:1rem 1.5rem;
+        background-color:#ff0;
+        }
+        .container .wording,
+        .container .arrow,
+        .container #random-haiku{
+        display:inline-block;
+        vertical-align:middle;
+        line-height:1.3em;
+        }
+        .container .wording{
+        font-family: 'Fjalla One', sans-serif;
+        font-weight: 100;
+        font-size:0.9em;
+        width:13em;
+        text-align:right;
+        margin-right:1em;
+        color:#999;
+        }
+        .container .arrow{margin-right:1em;}
+
+        .container .random{text-align:center; margin:3rem 0 0 0;}
+        .container .random button{font-size:2em;width:4rem; height:4rem; border-radius:50%; background-color:transparent; border:1px solid #666; outline: none; transition:all 0.3s; color:#999;}
+        .container .random button:hover{
+        cursor:pointer;
+        box-shadow:
+        0 0 0 2px hsl(0, 0%, 80%),
+        0 0 0 1px hsl(0, 0%, 90%);
+        }
+        .container .random button:active{
+        box-shadow:
+        0 0 0 15px hsl(0, 0%, 95%),
+        0 0 0 1px hsl(0, 0%, 90%);
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+    <header>
+    <h1>2016</h1>
+    </header>
+    <div class="haiku">
+        <p id="haiku1"></p>
+        <p id="haiku2"></p>
+        <p id="haiku3"></p>
+     </div>
+        <p class="random">
+          <span class="wording">Celui-là ne vous plait pas&nbsp;? Recommencez&nbsp;!</span>
+          <button type="button" id="random-haiku" title="rejouer">↺</button>
+        </p>
+    </section>
+    <script>
+        var five = [
+    "Année neuve, sourires",
+    "L'espoir se réveille",
+    "Année neuve, espoir",
+    "Bourgeons sous la neige",
+    "La sève sous l'écorce",
+    "Rires, fêtes et bonheur",
+    "De sages victoires",
+    "Du temps pour les autres",
+    "Du temps pour soi-même",
+    "Parfum des jacinthes",
+    "Étoiles accessibles",
+    "Le ciel se dégage",
+    "Réunions heureuses",
+    "Bitures cathartiques",
+    "Du sexe sauvage"
+    ];
+
+    var seven = [
+    "Renouveau en devenir",
+    "Légère érotomanie",
+    "L'arbre prépare son feuillage",
+    "Les jonquilles rêvent de fleurs",
+    "Branches tendues vers le ciel",
+    "Confiance et humilité",
+    "Le sens revient dans les mots",
+    "Construire avec les obstacles",
+    "Oser prendre le grand vent",
+    "Les nuées sont passagères",
+    "Le grand miroir de la lune"
+    ];
+
+    var haiku1 = document.getElementById('haiku1'),
+    haiku2 = document.getElementById('haiku2'),
+    haiku3 = document.getElementById('haiku3'),
+    btnGenerate = document.getElementById('random-haiku');
+    //haikusNumP = document.getElementById('haikus_num');
+    //haikusNum = (five.length) * (seven.length) * (five.length-1);
+
+    //haikusNumP.textContent = haikusNum;
+
+    function generate(){
+    h1Index = Math.floor(Math.random()*five.length);
+    h2Index = Math.floor(Math.random()*seven.length);
+    h3Index = Math.floor(Math.random()*five.length);
+    while(h1Index === h3Index){
+    h3Index = Math.floor(Math.random()*five.length);
+    }
+
+    haiku1.textContent = five[h1Index];
+    haiku2.textContent = seven[h2Index];
+    haiku3.textContent = five[h3Index];
+    }
+
+    generate();
+
+    btnGenerate.addEventListener('click',generate);
+    </script>
+</body>
+</html>
