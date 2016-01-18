@@ -5,8 +5,12 @@
     <title>Une bonne année 2016, choisissez votre haiku</title>
     <link href="http://fonts.googleapis.com/css?family=Fjalla+One:100|Cantarell:400,400italic,700italic,700" rel="stylesheet" type="text/css" />
     <style>
+    body{margin:0;}
     .container{
-        width:70%; margin:3em auto;
+        height:100vh;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
         }
         .container header{
         text-align:center;
@@ -48,7 +52,6 @@
         color:#999;
         }
         .container .arrow{margin-right:1em;}
-
         .container .random{text-align:center; margin:3rem 0 0 0;}
         .container .random button{font-size:2em;width:4rem; height:4rem; border-radius:50%; background-color:transparent; border:1px solid #C5C5C5; outline: none; transition:all 0.3s; color:#999;}
         .container .random button:hover{
@@ -80,63 +83,64 @@
         </p>
     </section>
     <script>
-        var five = [
-    "Année neuve, sourires",
-    "L'espoir se réveille",
-    "Année neuve, espoir",
-    "Bourgeons sous la neige",
-    "La sève sous l'écorce",
-    "Rires, fêtes et bonheur",
-    "De sages victoires",
-    "Du temps pour les autres",
-    "Du temps pour soi-même",
-    "Parfum des jacinthes",
-    "Étoiles accessibles",
-    "Le ciel se dégage",
-    "Réunions heureuses",
-    "Bitures cathartiques",
-    "Étreintes sauvages"
-    ];
+    var five = [
+        "Année neuve, sourires",
+        "L'espoir se réveille",
+        "Année neuve, espoir",
+        "Bourgeons sous la neige",
+        "La sève sous l'écorce",
+        "Rires, fêtes et bonheur",
+        "De sages victoires",
+        "Du temps pour les autres",
+        "Du temps pour soi-même",
+        "Parfum des jacinthes",
+        "Étoiles accessibles",
+        "Le ciel se dégage",
+        "Réunions heureuses",
+        "Bitures cathartiques",
+        "Étreintes sauvages"
+        ];
 
     var seven = [
-    "Renouveau en devenir",
-    "Légère érotomanie",
-    "L'arbre prépare son feuillage",
-    "Les jonquilles rêvent de fleurs",
-    "Branches tendues vers le ciel",
-    "Confiance et humilité",
-    "Le sens revient dans les mots",
-    "Construire avec les obstacles",
-    "Oser prendre le grand vent",
-    "Amour, fromages, rock n'roll",
-    "Les nuées sont passagères",
-    "Le grand miroir de la lune",
-    "Douce chaleur sur les pieds",
-    "Orgie de bons sentiments",
-    "La candeur n'est pas surfaite",
-    "La gentillesse n'est pas morte"
-    ];
+        "Renouveau en devenir",
+        "Légère érotomanie",
+        "L'arbre prépare son feuillage",
+        "Les jonquilles rêvent de fleurs",
+        "Branches tendues vers le ciel",
+        "Confiance et humilité",
+        "Le sens revient dans les mots",
+        "Construire avec les obstacles",
+        "Oser prendre le grand vent",
+        "Amour, fromages, rock n'roll",
+        "Les nuées sont passagères",
+        "Le grand miroir de la lune",
+        "Douce chaleur sur les pieds",
+        "Orgie de bons sentiments",
+        "La candeur n'est pas surfaite",
+        "La gentillesse n'est pas morte"
+        ];
 
     var haiku1 = document.getElementById('haiku1'),
-    haiku2 = document.getElementById('haiku2'),
-    haiku3 = document.getElementById('haiku3'),
-    btnGenerate = document.getElementById('random-haiku');
+        haiku2 = document.getElementById('haiku2'),
+        haiku3 = document.getElementById('haiku3'),
+        btnGenerate = document.getElementById('random-haiku');
     //haikusNumP = document.getElementById('haikus_num');
     //haikusNum = (five.length) * (seven.length) * (five.length-1);
 
     //haikusNumP.textContent = haikusNum;
 
     function generate(){
-    var h1Index = Math.floor(Math.random()*five.length),
-    h2Index = Math.floor(Math.random()*seven.length),
-    h3Index = Math.floor(Math.random()*five.length);
-    while(h1Index === h3Index){
-    h3Index = Math.floor(Math.random()*five.length);
-    }
+        var h1Index = Math.floor(Math.random()*five.length),
+            h2Index = Math.floor(Math.random()*seven.length),
+            h3Index = Math.floor(Math.random()*five.length);
 
-    haiku1.textContent = five[h1Index];
-    haiku2.textContent = seven[h2Index];
-    haiku3.textContent = five[h3Index];
+        while(h1Index === h3Index){
+        h3Index = Math.floor(Math.random()*five.length);
+        }
+
+        haiku1.textContent = five[h1Index];
+        haiku2.textContent = seven[h2Index];
+        haiku3.textContent = five[h3Index];
     }
 
     generate();
