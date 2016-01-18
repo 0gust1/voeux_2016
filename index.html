@@ -20,15 +20,16 @@
         font-weight: 700;
         margin:3rem 0 0 0;
         line-height:0.65em;
-        color:#ff0;
+        color:#FFDD60;
         }
         .container .haiku{
         font-family: 'Cantarell', sans-serif;
         font-size: 17px;
+        color:#333;
         max-width:17rem;
         margin:0 auto;
         padding:1rem 1.5rem;
-        background-color:#ff0;
+        background-color:#FFDD60;
         }
         .container .wording,
         .container .arrow,
@@ -49,7 +50,7 @@
         .container .arrow{margin-right:1em;}
 
         .container .random{text-align:center; margin:3rem 0 0 0;}
-        .container .random button{font-size:2em;width:4rem; height:4rem; border-radius:50%; background-color:transparent; border:1px solid #666; outline: none; transition:all 0.3s; color:#999;}
+        .container .random button{font-size:2em;width:4rem; height:4rem; border-radius:50%; background-color:transparent; border:1px solid #C5C5C5; outline: none; transition:all 0.3s; color:#999;}
         .container .random button:hover{
         cursor:pointer;
         box-shadow:
@@ -74,7 +75,7 @@
         <p id="haiku3"></p>
      </div>
         <p class="random">
-          <span class="wording">Celui-là ne vous plait pas&nbsp;? Recommencez&nbsp;!</span>
+          <span class="wording">Celui-ci ne vous plait pas&nbsp;? Recommencez&nbsp;!</span>
           <button type="button" id="random-haiku" title="rejouer">↺</button>
         </p>
     </section>
@@ -94,7 +95,7 @@
     "Le ciel se dégage",
     "Réunions heureuses",
     "Bitures cathartiques",
-    "Du sexe sauvage"
+    "Étreintes sauvages"
     ];
 
     var seven = [
@@ -107,8 +108,13 @@
     "Le sens revient dans les mots",
     "Construire avec les obstacles",
     "Oser prendre le grand vent",
+    "Amour, fromages, rock n'roll",
     "Les nuées sont passagères",
-    "Le grand miroir de la lune"
+    "Le grand miroir de la lune",
+    "Douce chaleur sur les pieds",
+    "Orgie de bons sentiments",
+    "La candeur n'est pas surfaite",
+    "La gentillesse n'est pas morte"
     ];
 
     var haiku1 = document.getElementById('haiku1'),
@@ -121,8 +127,8 @@
     //haikusNumP.textContent = haikusNum;
 
     function generate(){
-    h1Index = Math.floor(Math.random()*five.length);
-    h2Index = Math.floor(Math.random()*seven.length);
+    var h1Index = Math.floor(Math.random()*five.length),
+    h2Index = Math.floor(Math.random()*seven.length),
     h3Index = Math.floor(Math.random()*five.length);
     while(h1Index === h3Index){
     h3Index = Math.floor(Math.random()*five.length);
